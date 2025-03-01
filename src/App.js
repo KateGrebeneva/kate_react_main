@@ -1,20 +1,17 @@
 import React from 'react';
-import './App.css'; // Убедитесь, что вы импортируете файл стилей
+import './App.css'; 
 
 function App() {
-  function show1() {
-    alert('Hi, u click button 1');
-  }
-
-  function show2() {
-    alert('Hi, u click button 2');
+  function showNumber(number) {
+    alert(number);
   }
 
   return (
     <div className="container">
-      <h1 className="header">Навешивание событий в React</h1>
-      <button className="button" onClick={show1}>Act 1</button>
-      <button className="button" onClick={show2}>Act 2</button>
+      <h1 className="header">Нажмите на кнопку</h1>
+      <button className="button" onClick={() => showNumber(1)}>Click for 1</button>
+      <button className="button" onClick={() => showNumber(2)}>Click for 2</button>
+      <button className="button" onClick={() => showNumber(3)}>Click for 3</button>
     </div>
   );
 }
