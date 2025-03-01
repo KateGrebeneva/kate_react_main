@@ -1,18 +1,13 @@
-import './App.css';
+import React from 'react';
+import './App.css'; 
 
 function App() {
-  const age = 17; // Измените значение для проверки
+  const isAuth = true; 
 
   return (
     <div className="container">
-      <h1 className="header">Проверка возраста</h1>
-      <div className="text">
-        {age > 18 ? (
-          <p>Вы совершеннолетний!</p>
-        ) : (
-          <p>Вы еще молоды!</p>
-        )}
-      </div>
+      <h1 className="header">Добро пожаловать!</h1>
+      {isAuth && <p className="text">Вы авторизованы</p>}
     </div>
   );
 }
