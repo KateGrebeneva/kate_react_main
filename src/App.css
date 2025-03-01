@@ -1,5 +1,5 @@
 body {
-  background-color: #fa8cc1; /* Розовый фон */
+  background-color: #fa8cc1; 
   font-family: 'Arial', sans-serif;
   margin: 0;
   display: flex;
@@ -9,23 +9,27 @@ body {
 }
 
 .container {
-  border: 2px solid #c30262; /* Розовая граница */
+  border: 2px solid #c30262; 
   border-radius: 10px;
   padding: 30px;
   width: 400px;
   text-align: center;
   box-shadow: 0 4px 20px rgba(255, 105, 180, 0.5);
-  background-color: #ffc0d5; /* Светло-розовый фон контейнера */
+  background-color: #ffc0d5; 
+}
+
+h2{
+  color: #ff1493; 
 }
 
 .header {
-  color: #ff1493; /* Заголовок в ярком розовом цвете */
+  color: #ff1493; 
   font-size: 24px;
   margin-bottom: 20px;
 }
 
 .button {
-  background-color: #ff69b4; /* Кнопки в ярком розовом цвете */
+  background-color: #ff69b4; 
   color: white;
   border: none;
   border-radius: 5px;
@@ -37,5 +41,5 @@ body {
 }
 
 .button:hover {
-  background-color: #ff1493; /* Цвет кнопки при наведении */
+  background-color: #ff1493; 
 }
