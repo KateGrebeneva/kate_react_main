@@ -1,24 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  let text;
+  const show = false;
+
+  if (show) {
+    text = <p className="text">I'm 18 years old</p>;
+  } else {
+    text = <p className="text">I'm not 18 years old</p>;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h2 className="header">Task#25</h2> 
+      {text}
     </div>
+
   );
 }
 
