@@ -1,21 +1,22 @@
 import './App.css';
 
 function App() {
-  let text;
-  const show = false;
-
-  if (show) {
-    text = <p className="text">I'm 18 years old</p>;
-  } else {
-    text = <p className="text">I'm not 18 years old</p>;
-  }
+  const isAdmin = true;
 
   return (
     <div className="container">
-      <h2 className="header">Task#26</h2> 
-      {text}
+      <h1 className="header">Администратор</h1>
+      {isAdmin ? (
+        <div>
+          <p className="text">Добро пожаловать, администратор!</p>
+          <p className="text">Вы имеете доступ к специальным функциям.</p>
+          <p className="text">Пожалуйста, управляйте пользователями и настройками.</p>
+        </div>
+      ) : (
+        <p className="text">У вас нет доступа к этой странице.</p>
+      )}
+      <div className="footer">© 2025 Все права защищены</div>
     </div>
-
   );
 }
 
