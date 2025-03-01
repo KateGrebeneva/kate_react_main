@@ -1,13 +1,14 @@
 import React from 'react';
-import './App.css'; 
+import './App.css';
 
 function App() {
-  const isAuth = true; 
-
+  const isAuth = false; 
+  
   return (
     <div className="container">
       <h1 className="header">Добро пожаловать!</h1>
-      {isAuth && <p className="text">Вы авторизованы</p>}
+      {/* Текст будет отображаться только если isAuth равно false */}
+      {!isAuth && <p className="text">Пожалуйста, авторизуйтесь</p>}
     </div>
   );
 }
