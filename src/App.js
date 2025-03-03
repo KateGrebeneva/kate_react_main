@@ -1,20 +1,23 @@
 import React from 'react';
-import './App.css'; // Подключаем CSS файл
+import './App.css'; 
+
+const users = [
+  { name: 'Elena', surn: 'Gilbert', age: 18 },
+  { name: 'Damon', surn: 'Salvatore', age: 25 },
+  { name: 'Catherine', surn: 'Pirs', age: 20 },
+];
 
 function App() {
-  const arr = ['Флора', 'Блум', 'Муза', 'Стелла', 'Лейла'];
-
-  // Используем метод map для формирования списка
-  const listItems = arr.map((item) => (
-    <li key={item}>{item}</li> // Используем item как уникальный ключ
+  const userList = users.map((user, index) => (
+    <li key={index}>
+      {user.name} {user.surn}, Age: {user.age}
+    </li>
   ));
 
   return (
     <div className="container">
-      <h1 className="header">Список фей</h1>
-      <ul className="list">
-        {listItems}
-      </ul>
+      <h2 className="header">Список Пользователей</h2>
+      <ul className="list">{userList}</ul>
     </div>
   );
 }
