@@ -1,5 +1,5 @@
 body {
-  background-color: #ffaac1; 
+  background-color: #ff94bb; /* Светлый фон */
   font-family: 'Arial', sans-serif;
   margin: 0;
   display: flex;
@@ -9,30 +9,36 @@ body {
 }
 
 .container {
-  border: 2px solid #f44a72; 
+  border: 2px solid #ef0d85; /* Розовая граница */
   border-radius: 10px;
-  padding: 30px;
-  width: 300px;
+  padding: 20px;
+  width: 400px;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(255, 105, 180, 0.5);
-  background-color: #ffb7cf; 
+  box-shadow: 0 4px 20px rgba(255, 105, 180, 0.5); /* Тень */
+  background-color: #ffaac6; /* Розовый фон контейнера */
 }
 
 .header {
-  color: #ff1493; 
+  color: #ec0681; /* Цвет заголовка */
   font-size: 24px;
   margin-bottom: 20px;
 }
 
-.list {
-  list-style-type: none; 
-  padding: 0; 
+.user-table {
+  width: 100%;
+  border-collapse: collapse; /* Убираем двойные границы */
 }
 
-.list li {
-  background-color: #ff6f91; 
-  color: white; 
-  margin: 5px 0; 
+.user-table th, .user-table td {
+  border: 1px solid #f14970; /* Розовая граница для ячеек */
   padding: 10px;
-  border-radius: 5px; 
+}
+
+.user-table th {
+  background-color: #ee3c66; /* Цвет фона заголовков */
+  color: white; /* Цвет текста заголовков */
+}
+
+.user-table tr:nth-child(even) {
+  background-color: #fa77a9; /* Светлый фон для четных строк */
 }
