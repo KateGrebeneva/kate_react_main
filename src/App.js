@@ -1,12 +1,12 @@
 import React from 'react';
-import RandomTextGenerator from './RandomTextGenerator'; 
+import RandomIDGenerator from './RandomIDGenerator'; 
 import './App.css'; // Подключаем стили
 
 function App() {
   return (
     <div className="app-container">
-      <h1 className="app-header">Генератор текста</h1>
-      <RandomTextGenerator />
+      <h1 className="app-header">Генератор Уникальных ID</h1>
+      <RandomIDGenerator />
     </div>
   );
 }
