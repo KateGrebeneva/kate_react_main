@@ -1,18 +1,16 @@
 import React from 'react';
-import './App.css'; 
+import './App.css'; // Не забудьте подключить CSS файл
 
 function App() {
-  const arr = [
-    <li key={1}>Emma Swan</li>,
-    <li key={2}>Regina Mills</li>,
-    <li key={3}>Mister Gold</li>,
-    <li key={4}>Killian Jhons</li>,
-    <li key={5}>Mary Margeret</li>,
-  ];
+  const arr = [];
+
+  for (let i = 1; i <= 5; i++) {
+    arr.push(<li key={i}>{i}</li>);
+  }
 
   return (
     <div className="container">
-      <h1 className="header">Список элементов</h1>
+      <h1 className="header">Список чисел</h1>
       <ul className="list">
         {arr}
       </ul>
@@ -21,3 +19,4 @@ function App() {
 }
 
 export default App;
+
