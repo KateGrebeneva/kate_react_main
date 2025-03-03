@@ -1,17 +1,17 @@
 import React from 'react';
-import './App.css'; 
+import './App.css'; // Подключаем CSS файл
 
 function App() {
-  const arr = ['a', 'b', 'c', 'd', 'e'];
+  const arr = ['Флора', 'Блум', 'Муза', 'Стелла', 'Лейла'];
 
   // Используем метод map для формирования списка
-  const listItems = arr.map((item, index) => (
-    <li key={index}>{item}</li>
+  const listItems = arr.map((item) => (
+    <li key={item}>{item}</li> // Используем item как уникальный ключ
   ));
 
   return (
     <div className="container">
-      <h1 className="header">Список букв</h1>
+      <h1 className="header">Список фей</h1>
       <ul className="list">
         {listItems}
       </ul>
