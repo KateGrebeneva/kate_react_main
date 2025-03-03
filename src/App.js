@@ -1,22 +1,22 @@
 import React from 'react';
-import './App.css'; // Не забудьте подключить CSS файл
+import './App.css'; 
 
 function App() {
-  const arr = [];
+  const arr = ['a', 'b', 'c', 'd', 'e'];
 
-  for (let i = 1; i <= 5; i++) {
-    arr.push(<li key={i}>{i}</li>);
-  }
+  // Используем метод map для формирования списка
+  const listItems = arr.map((item, index) => (
+    <li key={index}>{item}</li>
+  ));
 
   return (
     <div className="container">
-      <h1 className="header">Список чисел</h1>
+      <h1 className="header">Список букв</h1>
       <ul className="list">
-        {arr}
+        {listItems}
       </ul>
     </div>
   );
 }
 
 export default App;
-
