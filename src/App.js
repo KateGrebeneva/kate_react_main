@@ -2,14 +2,14 @@ import React from 'react';
 import './App.css'; 
 
 const users = [
-  { name: 'Elena', surn: 'Gilbert', age: 18 },
-  { name: 'Damon', surn: 'Salvatore', age: 25 },
-  { name: 'Catherine', surn: 'Pirs', age: 20 },
+  { id: 1, name: 'Elena', surn: 'Gilbert', age: 18 },
+  { id: 2, name: 'Damon', surn: 'Salvatore', age: 25 },
+  { id: 3, name: 'Catherine', surn: 'Pirs', age: 20 },
 ];
 
 function App() {
-  const userList = users.map((user, index) => (
-    <li key={index}>
+  const userList = users.map((user) => (
+    <li key={user.id}>
       {user.name} {user.surn}, Age: {user.age}
     </li>
   ));
