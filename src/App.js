@@ -12,7 +12,7 @@ function App() {
       <input
         className="input"
         type="text"
-        placeholder="«Утиные истории» — телевизионный мультсериал, созданный компанией Уолта Диснея."
+        placeholder="Введите текст..."
         value={duckTales1}
         onChange={(e) => setDuckTales1(e.target.value)}
       />
@@ -21,7 +21,7 @@ function App() {
       <input
         className="input"
         type="text"
-        placeholder="Главными героями мультсериала являются пожилой селезень Скрудж МакДак и его племянники-утята — Билли, Вилли и Дилли."
+        placeholder="Введите текст..."
         value={duckTales2}
         onChange={(e) => setDuckTales2(e.target.value)}
       />
