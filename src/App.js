@@ -2,54 +2,22 @@ import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [language, setLanguage] = useState("");
+  const [text] = useState("Привет, мир!");
+  const [isChecked] = useState(true);
 
   return (
     <div className="container">
-      <h1 className="header">Выберите ваш любимый язык программирования 💻✨</h1>
+      <h1 className="header">Значения по умолчанию 🌸</h1>
 
-      <div className="radio-group">
-        <label>
-          <input
-            type="radio"
-            name="language"
-            value="JavaScript"
-            checked={language === "JavaScript"}
-            onChange={(e) => setLanguage(e.target.value)}
-          />
-          JavaScript
-        </label>
+      <label className="input-label"> 
+        Введите текст:
+        <input type="text" defaultValue={text} className="input-box" />
+      </label>
 
-        <label>
-          <input
-            type="radio"
-            name="language"
-            value="Python"
-            checked={language === "Python"}
-            onChange={(e) => setLanguage(e.target.value)}
-          />
-          Python
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="language"
-            value="C++"
-            checked={language === "C++"}
-            onChange={(e) => setLanguage(e.target.value)}
-          />
-          C++
-        </label>
-      </div>
-
-      {language && (
-        <p className="text">
-          {language === "JavaScript"
-            ? "Отличный выбор! JavaScript — это круто! 🚀🔥"
-            : `Вы выбрали: ${language} 💖`}
-        </p>
-      )}
+      <label className="checkbox-label">
+        <input type="checkbox" defaultChecked={isChecked} />
+        Согласен с условиями 🌟
+      </label>
     </div>
   );
 }

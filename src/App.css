@@ -24,27 +24,32 @@ body {
   margin-bottom: 15px;
 }
 
-.radio-group {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.radio-group label {
+.input-label {
   font-size: 18px;
   color: #c30262;
   font-weight: bold;
-  cursor: pointer;
+  display: block;
+  margin-bottom: 10px;
 }
 
-input[type="radio"] {
-  margin-right: 8px;
+.input-box {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  border: 2px solid #ff69b4;
+  border-radius: 8px;
+  background: white;
 }
 
-.text {
-  color: #ff1493;
-  font-size: 20px;
+.checkbox-label {
+  font-size: 18px;
+  color: #c30262;
   font-weight: bold;
+  display: flex;
+  align-items: center;
   margin-top: 15px;
+}
+
+.checkbox-label input {
+  margin-right: 10px;
 }
