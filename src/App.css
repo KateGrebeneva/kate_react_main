@@ -1,19 +1,18 @@
 body {
-  background-color: #fa8cc1;
+  background-color: #fa8cc1; /* Светлый фон для контраста */
   font-family: 'Arial', sans-serif;
-  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: 0;
 }
 
 .container {
   border: 2px solid #c30262;
   border-radius: 10px;
   padding: 30px;
-  margin: 20px;
-  width: 300px;
+  width: 350px;
   text-align: center;
   box-shadow: 0 4px 20px rgba(255, 105, 180, 0.5);
   background-color: #ffc0d5;
@@ -25,22 +24,17 @@ body {
   margin-bottom: 15px;
 }
 
+.input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #ff69b4;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
 .text {
   color: #ff1493;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
-}
-
-.button {
-  background-color: #ff69b4;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 15px;
-  cursor: pointer;
-  margin: 10px;
-}
-
-.button:hover {
-  background-color: #c71585;
 }
