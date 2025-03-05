@@ -2,53 +2,50 @@ import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  // Состояние для первого задания
-  const [isChecked, setIsChecked] = useState(false);
-  const [message, setMessage] = useState("");
+  // Задание 1: Проверка возраста
+  const [isAdult, setIsAdult] = useState(false);
 
-  function handleClick() {
-    setMessage(isChecked ? "Привет, пользователь! 😊" : "До свидания! 👋");
-  }
-
-  // Состояние для второго задания
-  const [htmlChecked, setHtmlChecked] = useState(false);
-  const [cssChecked, setCssChecked] = useState(false);
-  const [jsChecked, setJsChecked] = useState(false);
+  // Задание 2: Отображение текста о мультфильме
+  const [isVisible, setIsVisible] = useState(false);
 
   return (
     <div className="container">
-      <h1 className="header">Задание 62</h1>
+      <h1 className="header">Задание 63</h1>
 
       {/* Первая задача */}
       <div className="box">
-        <h2 className="sub-header">Приветствие</h2>
-        <input type="checkbox" checked={isChecked} onChange={() => setIsChecked(!isChecked)} />
-        <label className="checkbox-label">Отметьте, если вы хотите приветствие</label>
-        <br />
-        <button className="button" onClick={handleClick}>Показать сообщение</button>
-        <p className="text">{message}</p>
+        <h2 className="sub-header">Подтверждение возраста</h2>
+        <label className="checkbox-label">
+          <input type="checkbox" checked={isAdult} onChange={() => setIsAdult(!isAdult)} />
+          Мне уже есть 18 лет
+        </label>
+        <div className="content-box">
+          {isAdult ? (
+            <div>
+              <h2>Ура, вам уже есть 18! 🎉</h2>
+              <p>Здесь расположен контент только для взрослых. 🔞</p>
+            </div>
+          ) : (
+            <div>
+              <p>Увы, вам еще нет 18 лет. 😢</p>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Вторая задача */}
       <div className="box">
-        <h2 className="sub-header">Выбор языков</h2>
-        <div className="checkbox-group">
-          <label>
-            <input type="checkbox" checked={htmlChecked} onChange={() => setHtmlChecked(!htmlChecked)} />
-            HTML
-          </label>
-          <label>
-            <input type="checkbox" checked={cssChecked} onChange={() => setCssChecked(!cssChecked)} />
-            CSS
-          </label>
-          <label>
-            <input type="checkbox" checked={jsChecked} onChange={() => setJsChecked(!jsChecked)} />
-            JavaScript
-          </label>
-        </div>
-        <p className="text">HTML: {htmlChecked ? "✅ Знаю" : "❌ Не знаю"}</p>
-        <p className="text">CSS: {cssChecked ? "✅ Знаю" : "❌ Не знаю"}</p>
-        <p className="text">JavaScript: {jsChecked ? "✅ Знаю" : "❌ Не знаю"}</p>
+        <h2 className="sub-header">О мультфильме</h2>
+        <label className="checkbox-label">
+          <input type="checkbox" checked={isVisible} onChange={() => setIsVisible(!isVisible)} />
+          Показать описание "Чудеса на виражах"
+        </label>
+        {isVisible && (
+          <p className="text">
+            "Чудеса на виражах" — это захватывающий мультсериал о приключениях Балло и его друзей,
+            путешествующих на гидроплане и попадающих в удивительные ситуации. 🛩️✨
+          </p>
+        )}
       </div>
     </div>
   );
