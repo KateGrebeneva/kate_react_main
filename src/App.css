@@ -16,24 +16,37 @@ body {
   text-align: center;
   box-shadow: 0 5px 25px rgba(255, 105, 180, 0.5);
   background-color: #ffc0d5;
+  transition: transform 0.2s ease-in-out;
+}
+
+.container:hover {
+  transform: scale(1.02);
 }
 
 .header {
   color: #ff1493;
   font-size: 26px;
   margin-bottom: 15px;
+  font-weight: bold;
 }
 
 .input-box {
-  width: 50%;
+  width: 60%;
   text-align: center;
   padding: 10px;
   font-size: 18px;
-  color:#c30262;
+  color: #c30262;
   border: 2px solid #e12f88;
   border-radius: 8px;
   background: rgb(255, 235, 241);
-  margin: 5px 0;
+  margin: 8px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.input-box:focus {
+  border-color: #ff1493;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+  outline: none;
 }
 
 .result {
@@ -41,4 +54,8 @@ body {
   font-weight: bold;
   color: #c30262;
   margin-top: 15px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 8px;
+  display: inline-block;
 }

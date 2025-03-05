@@ -1,33 +1,49 @@
 import React, { useState } from "react";
 import "./App.css";
 
-function getAverage(arr) {
-  if (arr.length === 0) return 0;
-  const sum = arr.reduce((acc, num) => acc + Number(num), 0);
-  return (sum / arr.length).toFixed(2);
+const initDate = {
+  year: 2025,
+  month: 12,
+  day: 31,
+};
+
+function getWeekday(year, month, day) {
+  const date = new Date(year, month - 1, day);
+  const weekdays = ["🌞 Воскресенье", "🌜 Понедельник", "🌛 Вторник", "⭐ Среда", "🌎 Четверг", "🔥 Пятница", "🎉 Суббота"];
+  return weekdays[date.getDay()];
 }
 
 function App() {
-  const [numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+  const [date, setDate] = useState(initDate);
 
-  function changeHandler(index, event) {
-    const newNumbers = [...numbers];
-    newNumbers[index] = event.target.value;
-    setNumbers(newNumbers);
+  function handleChange(prop, event) {
+    setDate({ ...date, [prop]: event.target.value });
   }
 
   return (
     <div className="container">
-      <h2 className="header">Среднее арифметическое</h2>
-      {numbers.map((num, index) => (
-        <input
-          key={index}
-          className="input-box"
-          value={num}
-          onChange={(event) => changeHandler(index, event)}
-        />
-      ))}
-      <p className="result">Среднее: {getAverage(numbers)}</p>
+      <h2 className="header">Выбор даты</h2>
+      <input
+        type="number"
+        className="input-box"
+        value={date.year}
+        onChange={(event) => handleChange("year", event)}
+      />
+      <input
+        type="number"
+        className="input-box"
+        value={date.month}
+        onChange={(event) => handleChange("month", event)}
+      />
+      <input
+        type="number"
+        className="input-box"
+        value={date.day}
+        onChange={(event) => handleChange("day", event)}
+      />
+      <p className="result">
+        Дата: {date.year}-{date.month}-{date.day} ({getWeekday(date.year, date.month, date.day)})
+      </p>
     </div>
   );
 }
