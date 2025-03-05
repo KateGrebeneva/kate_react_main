@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  const [firstName, setFirstName] = useState('Реджина');
-  const [lastName, setLastName] = useState('Милс');
+  // Стейт для бана пользователя
+  const [isBanned, setIsBanned] = useState(false);
 
   return (
     <div className="container">
-      <h1 className="header">Данные пользователя</h1>
-      <p className="text">Имя: <span>{firstName}</span></p>
-      <button className="button" onClick={() => setFirstName('Эмма')}>Изменить имя</button>
-      <p className="text">Фамилия: <span>{lastName}</span></p>
-      <button className="button" onClick={() => setLastName('Свон')}>Изменить фамилию</button>
+      <h1 className="header">Управление пользователем</h1>
+      <p className="text">Пользователь {isBanned ? 'заблокирован' : 'не заблокирован'}</p>
+      {isBanned ? (
+        <button className="button" onClick={() => setIsBanned(false)}>Разблокировать пользователя</button>
+      ) : (
+        <button className="button" onClick={() => setIsBanned(true)}>Заблокировать пользователя</button>
+      )}
     </div>
   );
 }
