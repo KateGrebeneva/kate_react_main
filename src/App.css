@@ -1,42 +1,49 @@
 body {
   background-color: #fa8cc1;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   height: 100vh;
   margin: 0;
 }
+
 .container {
-  border: 2px solid #9c0550;
+  border: 3px solid #c30262;
   border-radius: 12px;
   padding: 25px;
   width: 400px;
   text-align: center;
-  background-color: #ffccdd;
-  box-shadow: 0 5px 20px rgba(255, 105, 180, 0.3);
+  box-shadow: 0 5px 25px rgba(255, 105, 180, 0.5);
+  background-color: #ffc0d5;
 }
 
 .header {
-  color: #d63384;
-  font-size: 22px;
+  color: #ff1493;
+  font-size: 26px;
   margin-bottom: 15px;
 }
 
-.select-box {
-  width: 100%;
-  padding: 10px;
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.radio-group label {
   font-size: 18px;
-  border: 2px solid #ff69b4;
-  color:#9c0550;
-  border-radius: 8px;
-  background: white;
+  color: #c30262;
+  font-weight: bold;
   cursor: pointer;
 }
 
+input[type="radio"] {
+  margin-right: 8px;
+}
+
 .text {
-  color: #d63384;
+  color: #ff1493;
   font-size: 20px;
   font-weight: bold;
   margin-top: 15px;
