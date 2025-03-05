@@ -13,7 +13,7 @@ body {
   border-radius: 10px;
   padding: 30px;
   margin: 20px;
-  width: 300px;
+  width: 350px;
   text-align: center;
   box-shadow: 0 4px 20px rgba(255, 105, 180, 0.5);
   background-color: #ffc0d5;
@@ -29,4 +29,18 @@ body {
   color: #ff1493;
   font-size: 20px;
   font-weight: bold;
+}
+
+.button {
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background-color: #c71585;
 }
