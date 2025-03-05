@@ -24,32 +24,21 @@ body {
   margin-bottom: 15px;
 }
 
-.input-label {
-  font-size: 18px;
-  color: #c30262;
-  font-weight: bold;
-  display: block;
-  margin-bottom: 10px;
-}
-
 .input-box {
-  width: 100%;
+  width: 50%;
+  text-align: center;
   padding: 10px;
   font-size: 18px;
-  border: 2px solid #ff69b4;
+  color:#c30262;
+  border: 2px solid #e12f88;
   border-radius: 8px;
-  background: white;
+  background: rgb(255, 235, 241);
+  margin: 5px 0;
 }
 
-.checkbox-label {
-  font-size: 18px;
-  color: #c30262;
+.result {
+  font-size: 20px;
   font-weight: bold;
-  display: flex;
-  align-items: center;
+  color: #c30262;
   margin-top: 15px;
-}
-
-.checkbox-label input {
-  margin-right: 10px;
 }
