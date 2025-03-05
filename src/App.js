@@ -1,25 +1,19 @@
-// src/App.js
-import React from 'react';
-import { id } from './utils';
-import './App.css'; // Импортируем стили
+import React, { useState } from 'react';
+import './App.css';
 
-const App = () => {
-  const users = [
-    { id: id(), name: 'Alice', age: 25 },
-    { id: id(), name: 'Bob', age: 30 },
-    { id: id(), name: 'Charlie', age: 35 },
-  ];
+function App() {
+  const [firstName, setFirstName] = useState('Реджина');
+  const [lastName, setLastName] = useState('Милс');
+  const [age, setAge] = useState(25);
 
   return (
     <div className="container">
-      <h1>Список Пользователей</h1>
-      {users.map(user => (
-        <div key={user.id} className="user">
-          ID: {user.id}, Имя: {user.name}, Возраст: {user.age}
-        </div>
-      ))}
+      <h1 className="header">Данные пользователя</h1>
+      <p className="text">Имя: <span>{firstName}</span></p>
+      <p className="text">Фамилия: <span>{lastName}</span></p>
+      <p className="text">Возраст: <span>{age}</span></p>
     </div>
   );
-};
+}
 
 export default App;
