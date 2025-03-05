@@ -2,22 +2,21 @@ import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [city, setCity] = useState("");
+  const cities = ["Рим 🇮🇹", "Париж 🇫🇷", "Токио 🇯🇵", "Нью-Йорк 🇺🇸", "Барселона 🇪🇸"];
+  const [selectedCity, setSelectedCity] = useState("");
 
   return (
     <div className="container">
       <h1 className="header">Выбор города 🌍</h1>
 
-      <select className="select-box" value={city} onChange={(e) => setCity(e.target.value)}>
+      <select className="select-box" value={selectedCity} onChange={(e) => setSelectedCity(e.target.value)}>
         <option value="">Выберите город...</option>
-        <option value="Рим 🇮🇹 🍕">Рим 🇮🇹 🍕</option>
-        <option value="Париж 🇫🇷 🥐">Париж 🇫🇷 🥐</option>
-        <option value="Токио 🇯🇵 🍣">Токио 🇯🇵 🍣</option>
-        <option value="Нью-Йорк 🇺🇸 🍔">Нью-Йорк 🇺🇸 🍔</option>
-        <option value="Барселона 🇪🇸 🍷">Барселона 🇪🇸 🍷</option>
+        {cities.map((city, index) => (
+          <option key={index} value={city}>{city}</option>
+        ))}
       </select>
 
-      {city && <p className="text">Вы выбрали: {city}</p>}
+      {selectedCity && <p className="text">Вы выбрали: {selectedCity}</p>}
     </div>
   );
 }

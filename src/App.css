@@ -28,10 +28,10 @@ body {
   width: 100%;
   padding: 10px;
   font-size: 18px;
+  color:#c30262;
   border: 2px solid #ff69b4;
-  color: #c30262;
   border-radius: 8px;
-  background: rgb(255, 226, 233);
+  background: rgb(253, 207, 227);
   cursor: pointer;
 }
 
