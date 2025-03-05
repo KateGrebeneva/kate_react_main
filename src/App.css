@@ -13,7 +13,7 @@ body {
   border: 3px solid #c30262;
   border-radius: 12px;
   padding: 25px;
-  width: 770px;
+  width: 500px;
   text-align: center;
   box-shadow: 0 5px 25px rgba(255, 105, 180, 0.5);
   background-color: #ffc0d5;
@@ -33,34 +33,21 @@ body {
   background-color: #ffe4e9;
 }
 
-.input {
-  width: 80%;
+.sub-header {
+  color: #ff1493;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.textarea {
+  width: 90%;
+  height: 80px;
   padding: 8px;
   margin: 5px;
   border: 2px solid #ff69b4;
   border-radius: 5px;
   font-size: 16px;
-  text-align: center;
-}
-.button-group {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.button {
-  background-color: #ff69b4;
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 10px;
-}
-
-.button:hover {
-  background-color: #c30262;
+  resize: none;
 }
 
 .text {
