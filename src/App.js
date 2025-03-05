@@ -2,48 +2,29 @@ import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [age, setAge] = useState(0);
-  const [fahrenheit, setFahrenheit] = useState(0);
+  const [values, setValues] = useState(Array(5).fill(0));
 
-  function handleAgeChange(event) {
-    setAge(event.target.value);
+  function handleChange(index, event) {
+    const newValues = [...values];
+    newValues[index] = +event.target.value || 0; // Преобразуем ввод в число
+    setValues(newValues);
   }
 
-  function handleFahrenheitChange(event) {
-    setFahrenheit(event.target.value);
-  }
-
-  const currentYear = new Date().getFullYear();
-  const birthYear = currentYear - age;
-  const celsius = (fahrenheit - 32) * (5 / 9);
+  const average = values.reduce((acc, val) => acc + val, 0) / values.length;
 
   return (
     <div className="container">
-      <h1 className="header">Задание 58</h1>
-
-      <div className="section">
-        <h2>Определение года рождения</h2>
-        <input 
-          type="number" 
-          value={age} 
-          onChange={handleAgeChange} 
-          placeholder="Введите ваш возраст" 
-          className="input" 
+      <h1 className="header">Среднее арифметическое</h1>
+      {values.map((value, index) => (
+        <input
+          key={index}
+          value={value}
+          onChange={(event) => handleChange(index, event)}
+          className="input"
+          placeholder={"Введите число " + (index + 1)} // Заменили на конкатенацию строк
         />
-        <p className="text">Ваш год рождения: {birthYear}</p>
-      </div>
-
-      <div className="section">
-        <h2>Конвертация Фаренгейта в Цельсий</h2>
-        <input 
-          type="number" 
-          value={fahrenheit} 
-          onChange={handleFahrenheitChange} 
-          placeholder="Введите градусы Фаренгейта" 
-          className="input" 
-        />
-        <p className="text">Градусы Цельсия: {celsius.toFixed(2)}</p>
-      </div>
+      ))}
+      <p className="text">Среднее арифметическое: {average.toFixed(2)}</p>
     </div>
   );
 }
