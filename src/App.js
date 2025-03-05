@@ -2,18 +2,14 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  // Стейт для бана пользователя
-  const [isBanned, setIsBanned] = useState(false);
+  const [age, setAge] = useState(0); // Стейт для хранения возраста
 
   return (
     <div className="container">
-      <h1 className="header">Управление пользователем</h1>
-      <p className="text">Пользователь {isBanned ? 'заблокирован' : 'не заблокирован'}</p>
-      {isBanned ? (
-        <button className="button" onClick={() => setIsBanned(false)}>Разблокировать пользователя</button>
-      ) : (
-        <button className="button" onClick={() => setIsBanned(true)}>Заблокировать пользователя</button>
-      )}
+      <h1 className="header">Счетчик возраста</h1>
+      <p className="text">Ваш возраст: {age}</p>
+      <button className="button" onClick={() => setAge(age + 1)}>Увеличить возраст</button>
+      <button className="button" onClick={() => setAge(age - 1)}>Уменьшить возраст</button>
     </div>
   );
 }
