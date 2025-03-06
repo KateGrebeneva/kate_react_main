@@ -12,7 +12,7 @@ body {
   border: 3px solid #c30262;
   border-radius: 12px;
   padding: 25px;
-  width: 400px;
+  width: 450px;
   text-align: center;
   box-shadow: 0 5px 25px rgba(255, 105, 180, 0.5);
   background-color: #ffc0d5;
@@ -38,29 +38,7 @@ body {
   align-items: center;
 }
 
-.list-item:hover {
-  background: #ffb6c1;
-}
-
-.delete-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  color: #c30262;
-}
-
-.input-box {
-  width: 100%;
-  padding: 10px;
-  font-size: 18px;
-  border: 2px solid #ff69b4;
-  border-radius: 8px;
-  background: white;
-  margin-top: 10px;
-}
-
-.reverse-btn {
+.add-btn {
   margin-top: 15px;
   padding: 10px;
   font-size: 18px;
@@ -71,7 +49,22 @@ body {
   cursor: pointer;
 }
 
-.reverse-btn:hover {
+.add-btn:hover {
   background: #c30262;
 }
 
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.input-box {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  border: 2px solid #ff69b4;
+  border-radius: 8px;
+  background: white;
+}
