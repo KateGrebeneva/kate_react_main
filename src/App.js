@@ -1,101 +1,125 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid"; // Для генерации уникальных ID
-import "./App.css"; 
+import "./App.css";
+import { v4 as uuidv4 } from "uuid";
 
-const initNotes = [
+const initCharacters = [
   {
-    id: "GYi9G_uC4gBF1e2SixDvu",
-    prop1: "Флора",
-    prop2: "фея",
-    prop3: "природа",
+    id: uuidv4(),
+    name: "Ариэль",
+    role: "Русалочка",
+    trait: "Любознательная",
   },
   {
-    id: "IWSpfBPSV3SXgRF87uO74",
-    prop1: "Блум",
-    prop2: "фея",
-    prop3: "огонь",
+    id: uuidv4(),
+    name: "Урсула",
+    role: "Ведьма моря",
+    trait: "Коварная",
   },
   {
-    id: "JAmjRlfQT8rLTm5tG2m1L",
-    prop1: "Муза",
-    prop2: "фея",
-    prop3: "музыка",
+    id: uuidv4(),
+    name: "Тритон",
+    role: "Отец Ариэль",
+    trait: "Мудрый",
+  },
+  {
+    id: uuidv4(),
+    name: "Флаундер",
+    role: "Рыбка, друг Ариэль",
+    trait: "Добродушный",
+  },
+  {
+    id: uuidv4(),
+    name: "Себастьян",
+    role: "Краб-дворецкий",
+    trait: "Заботливый",
   },
 ];
 
 function App() {
-  const [notes, setNotes] = useState(initNotes);
-  const [input1, setInput1] = useState("");
-  const [input2, setInput2] = useState("");
-  const [input3, setInput3] = useState("");
+  const [characters, setCharacters] = useState(initCharacters);
+  const [inputName, setInputName] = useState("");
+  const [inputRole, setInputRole] = useState("");
+  const [inputTrait, setInputTrait] = useState("");
+  const [editId, setEditId] = useState(null);
 
-  // Функция для добавления нового объекта
-  const addNote = () => {
-    const newNote = {
-      id: uuidv4(),
-      prop1: "Стелла",
-      prop2: "фея",
-      prop3: "солнце",
-    };
-    setNotes([...notes, newNote]);
+  // Удаление персонажа
+  const removeCharacter = (id) => {
+    setCharacters(characters.filter((char) => char.id !== id));
   };
 
-  // Функция для добавления объекта из инпутов
-  const addNoteFromInputs = () => {
-    if (!input1 || !input2 || !input3) return;
-    const newNote = {
-      id: uuidv4(),
-      prop1: input1,
-      prop2: input2,
-      prop3: input3,
-    };
-    setNotes([...notes, newNote]);
-    setInput1("");
-    setInput2("");
-    setInput3("");
+  // Заполнение инпутов данными персонажа
+  const fillInputs = (id) => {
+    const char = characters.find((char) => char.id === id);
+    if (char) {
+      setInputName(char.name);
+      setInputRole(char.role);
+      setInputTrait(char.trait);
+      setEditId(id);
+    }
+  };
+
+  // Обновление данных персонажа
+  const updateCharacter = () => {
+    if (!editId) return;
+
+    setCharacters(
+      characters.map((char) =>
+        char.id === editId
+          ? { ...char, name: inputName, role: inputRole, trait: inputTrait }
+          : char
+      )
+    );
+
+    // Очистка инпутов
+    setInputName("");
+    setInputRole("");
+    setInputTrait("");
+    setEditId(null);
   };
 
   return (
     <div className="container">
-      <h2 className="header">Массив объектов</h2>
+      <h2 className="header">✨ Персонажи "Русалочки" ✨</h2>
       <ul>
-        {notes.map((note) => (
-          <li key={note.id} className="list-item">
-            <span>{note.prop1}</span>
-            <span>{note.prop2}</span>
-            <span>{note.prop3}</span>
+        {characters.map((char) => (
+          <li key={char.id} className="list-item">
+            <span>🌊 {char.name}</span>
+            <span>🎭 {char.role}</span>
+            <span>💖 {char.trait}</span>
+            <button className="btn" onClick={() => fillInputs(char.id)}>
+              ✏️ Редактировать
+            </button>
+            <button className="btn delete" onClick={() => removeCharacter(char.id)}>
+              ❌ Удалить
+            </button>
           </li>
         ))}
       </ul>
 
-      <button className="add-btn" onClick={addNote}>
-        ➕ Добавить объект
-      </button>
-
       <div className="input-group">
         <input
           type="text"
-          placeholder="Prop1"
+          placeholder="Имя"
           className="input-box"
-          value={input1}
-          onChange={(e) => setInput1(e.target.value)}
+          value={inputName}
+          onChange={(e) => setInputName(e.target.value)}
         />
         <input
           type="text"
-          placeholder="Prop2"
+          placeholder="Роль"
           className="input-box"
-          value={input2}
-          onChange={(e) => setInput2(e.target.value)}
+          value={inputRole}
+          onChange={(e) => setInputRole(e.target.value)}
         />
         <input
           type="text"
-          placeholder="Prop3"
+          placeholder="Характеристика"
           className="input-box"
-          value={input3}
-          onChange={(e) => setInput3(e.target.value)}
+          value={inputTrait}
+          onChange={(e) => setInputTrait(e.target.value)}
         />
-        <button className="add-btn" onClick={addNoteFromInputs}>
-          ➕ Добавить из инпутов
+        <button className="btn update" onClick={updateCharacter}>
+          ✅ Сохранить изменения
         </button>
       </div>
     </div>
