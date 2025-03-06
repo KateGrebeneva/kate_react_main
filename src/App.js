@@ -1,49 +1,40 @@
 import React, { useState } from "react";
 import "./App.css";
 
-const initDate = {
-  year: 2025,
-  month: 12,
-  day: 31,
-};
-
-function getWeekday(year, month, day) {
-  const date = new Date(year, month - 1, day);
-  const weekdays = ["🌞 Воскресенье", "🌜 Понедельник", "🌛 Вторник", "⭐ Среда", "🌎 Четверг", "🔥 Пятница", "🎉 Суббота"];
-  return weekdays[date.getDay()];
-}
-
 function App() {
-  const [date, setDate] = useState(initDate);
+  const characters = ["🐿️ Чип", "🐿️ Дейл", "🐀 Рокфор", "🦇 Вжик", "🐭 Гаечка"];
+  const [notes, setNotes] = useState(characters);
+  const [inputValue, setInputValue] = useState("");
 
-  function handleChange(prop, event) {
-    setDate({ ...date, [prop]: event.target.value });
+  function addNewItem() {
+    setNotes([...notes, "⭐ Новый герой"]);
+  }
+
+  function addCustomItem() {
+    if (inputValue.trim() !== "") {
+      setNotes([...notes, `🌟 ${inputValue}`]);
+      setInputValue("");
+    }
   }
 
   return (
     <div className="container">
-      <h2 className="header">Выбор даты</h2>
+      <h2 className="header">🔎 Команда спасателей</h2>
+      <ul className="list">
+        {notes.map((note, index) => (
+          <li key={index} className="list-item">{note}</li>
+        ))}
+      </ul>
+      <button className="btn" onClick={addNewItem}>➕ Добавить героя</button>
+      <br />
       <input
-        type="number"
         className="input-box"
-        value={date.year}
-        onChange={(event) => handleChange("year", event)}
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        placeholder="Введите имя героя"
       />
-      <input
-        type="number"
-        className="input-box"
-        value={date.month}
-        onChange={(event) => handleChange("month", event)}
-      />
-      <input
-        type="number"
-        className="input-box"
-        value={date.day}
-        onChange={(event) => handleChange("day", event)}
-      />
-      <p className="result">
-        Дата: {date.year}-{date.month}-{date.day} ({getWeekday(date.year, date.month, date.day)})
-      </p>
+      <button className="btn" onClick={addCustomItem}>✨ Добавить персонажа</button>
     </div>
   );
 }
