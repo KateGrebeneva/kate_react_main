@@ -12,75 +12,40 @@ body {
   border: 3px solid #c30262;
   border-radius: 12px;
   padding: 25px;
-  width: 900px;
+  width: 400px;
   text-align: center;
   box-shadow: 0 5px 25px rgba(255, 105, 180, 0.5);
   background-color: #ffc0d5;
 }
 
-.header {
-  color: #ff1493;
-  font-size: 26px;
-  margin-bottom: 15px;
+.product-name {
+  font-size: 22px;
+  color: #9b1a3d; /* Темно-розовый для названия продукта */
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.list-item {
-  font-size: 18px;
-  color: #c30262;
-  padding: 10px;
-  border: 2px solid #e12f88;
+.description-box {
+  background-color: #ffd4e3; /* Светло-розовый фон для описания */
+  border: 2px solid #ff69b4; /* Рамочка светло-розовая */
   border-radius: 8px;
-  background: rgb(255, 235, 241);
-  margin: 5px 0;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 10px;
+  margin-top: 10px;
+  color: #d36d8d; /* Чуть светлее розовый для текста */
 }
 
-.btn {
-  margin-left: 5px;
-  padding: 8px;
-  font-size: 14px;
-  border: none;
-  border-radius: 6px;
-  background: #ff69b4;
+.show-btn {
+  background-color: #ff1493;
   color: white;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background: #c30262;
-}
-
-.delete {
-  background: #ff4d4d;
-}
-
-.delete:hover {
-  background: #c30000;
-}
-
-.update {
-  background: #4caf50;
-}
-
-.update:hover {
-  background: #2e7d32;
-}
-
-.input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  border: none;
+  padding: 10px 20px;
   margin-top: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
 }
 
-.input-box {
-  width: 100%;
-  padding: 10px;
-  font-size: 18px;
-  border: 2px solid #ff69b4;
-  border-radius: 8px;
-  background: white;
+.show-btn:hover {
+  background-color: #c30262;
 }

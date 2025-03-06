@@ -1,129 +1,57 @@
-import React, { useState } from "react";
-import "./App.css";
-import { v4 as uuidv4 } from "uuid";
+import React, { useState } from 'react';
+import './App.css';
 
-const initCharacters = [
+const id = () => '_' + Math.random().toString(36).substr(2, 9);  // Генерация уникального ID
+
+const initNotes = [
   {
-    id: uuidv4(),
-    name: "Ариэль",
-    role: "Русалочка",
-    trait: "Любознательная",
+    id: id(),
+    name: 'Rose Water Facial Toner 🌹',
+    desc: 'A refreshing toner made from rose water to hydrate and rejuvenate the skin. 💧',
+    show: false,
   },
   {
-    id: uuidv4(),
-    name: "Урсула",
-    role: "Ведьма моря",
-    trait: "Коварная",
+    id: id(),
+    name: 'Lavender Lip Balm 💜',
+    desc: 'A soothing lip balm with lavender oil to keep your lips soft and hydrated. 💋',
+    show: false,
   },
   {
-    id: uuidv4(),
-    name: "Тритон",
-    role: "Отец Ариэль",
-    trait: "Мудрый",
-  },
-  {
-    id: uuidv4(),
-    name: "Флаундер",
-    role: "Рыбка, друг Ариэль",
-    trait: "Добродушный",
-  },
-  {
-    id: uuidv4(),
-    name: "Себастьян",
-    role: "Краб-дворецкий",
-    trait: "Заботливый",
+    id: id(),
+    name: 'Minty Fresh Face Mask 🌿',
+    desc: 'A cooling face mask with mint extract that helps to refresh and revitalize tired skin. ❄️',
+    show: false,
   },
 ];
 
 function App() {
-  const [characters, setCharacters] = useState(initCharacters);
-  const [inputName, setInputName] = useState("");
-  const [inputRole, setInputRole] = useState("");
-  const [inputTrait, setInputTrait] = useState("");
-  const [editId, setEditId] = useState(null);
+  const [notes, setNotes] = useState(initNotes);
 
-  // Удаление персонажа
-  const removeCharacter = (id) => {
-    setCharacters(characters.filter((char) => char.id !== id));
-  };
-
-  // Заполнение инпутов данными персонажа
-  const fillInputs = (id) => {
-    const char = characters.find((char) => char.id === id);
-    if (char) {
-      setInputName(char.name);
-      setInputRole(char.role);
-      setInputTrait(char.trait);
-      setEditId(id);
-    }
-  };
-
-  // Обновление данных персонажа
-  const updateCharacter = () => {
-    if (!editId) return;
-
-    setCharacters(
-      characters.map((char) =>
-        char.id === editId
-          ? { ...char, name: inputName, role: inputRole, trait: inputTrait }
-          : char
+  const toggleDescription = (id) => {
+    setNotes((prevNotes) =>
+      prevNotes.map((note) =>
+        note.id === id ? { ...note, show: !note.show } : note
       )
     );
-
-    // Очистка инпутов
-    setInputName("");
-    setInputRole("");
-    setInputTrait("");
-    setEditId(null);
   };
 
-  return (
-    <div className="container">
-      <h2 className="header">✨ Персонажи "Русалочки" ✨</h2>
-      <ul>
-        {characters.map((char) => (
-          <li key={char.id} className="list-item">
-            <span>🌊 {char.name}</span>
-            <span>🎭 {char.role}</span>
-            <span>💖 {char.trait}</span>
-            <button className="btn" onClick={() => fillInputs(char.id)}>
-              ✏️ Редактировать
-            </button>
-            <button className="btn delete" onClick={() => removeCharacter(char.id)}>
-              ❌ Удалить
-            </button>
-          </li>
-        ))}
-      </ul>
-
-      <div className="input-group">
-        <input
-          type="text"
-          placeholder="Имя"
-          className="input-box"
-          value={inputName}
-          onChange={(e) => setInputName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Роль"
-          className="input-box"
-          value={inputRole}
-          onChange={(e) => setInputRole(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Характеристика"
-          className="input-box"
-          value={inputTrait}
-          onChange={(e) => setInputTrait(e.target.value)}
-        />
-        <button className="btn update" onClick={updateCharacter}>
-          ✅ Сохранить изменения
-        </button>
-      </div>
+  const result = notes.map((note) => (
+    <div key={note.id} className="note">
+      <p className="product-name">
+        {note.name}
+      </p>
+      {note.show && (
+        <div className="description-box">
+          <i>{note.desc}</i>
+        </div>
+      )}
+      <button className="show-btn" onClick={() => toggleDescription(note.id)}>
+        {note.show ? 'Hide Description ❌' : 'Show Description 👀'}
+      </button>
     </div>
-  );
+  ));
+
+  return <div className="container">{result}</div>;
 }
 
 export default App;
