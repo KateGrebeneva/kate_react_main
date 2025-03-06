@@ -1,42 +1,61 @@
 import React, { useState } from "react";
-import "./App.css";
+import "./App.css"; 
 
-function App() {
-  const characters = ["🐿️ Чип", "🐿️ Дейл", "🐀 Рокфор", "🦇 Вжик", "🐭 Гаечка"];
-  const [notes, setNotes] = useState(characters);
+export default function App() {
+  const [numbers, setNumbers] = useState([1, 2, 3, 4, 5]);
   const [inputValue, setInputValue] = useState("");
+  const [editIndex, setEditIndex] = useState(null);
 
-  function addNewItem() {
-    setNotes([...notes, "⭐ Новый герой"]);
-  }
+  // №1: Клик по li возводит число в квадрат
+  const squareNumber = (index) => {
+    setNumbers(numbers.map((num, i) => (i === index ? num * num : num)));
+  };
 
-  function addCustomItem() {
-    if (inputValue.trim() !== "") {
-      setNotes([...notes, `🌟 ${inputValue}`]);
-      setInputValue("");
+  // №2: Удаление li
+  const deleteNumber = (index) => {
+    setNumbers(numbers.filter((_, i) => i !== index));
+  };
+
+  // №3: Клик по li переносит число в input
+  const selectNumber = (index) => {
+    setInputValue(numbers[index]);
+    setEditIndex(index);
+  };
+
+  // №4: Потеря фокуса input обновляет li
+  const updateNumber = () => {
+    if (editIndex !== null) {
+      const updatedNumbers = [...numbers];
+      updatedNumbers[editIndex] = Number(inputValue);
+      setNumbers(updatedNumbers);
+      setEditIndex(null);
     }
-  }
+  };
+
+  // №5: Переворачиваем порядок элементов
+  const reverseNumbers = () => {
+    setNumbers([...numbers].reverse());
+  };
 
   return (
     <div className="container">
-      <h2 className="header">🔎 Команда спасателей</h2>
-      <ul className="list">
-        {notes.map((note, index) => (
-          <li key={index} className="list-item">{note}</li>
+      <h1 className="header">Реактивный список</h1>
+      <ul>
+        {numbers.map((num, index) => (
+          <li key={index} onClick={() => squareNumber(index)} className="list-item">
+            {num} 
+            <button className="delete-btn" onClick={(e) => { e.stopPropagation(); deleteNumber(index); }}>❌</button>
+          </li>
         ))}
       </ul>
-      <button className="btn" onClick={addNewItem}>➕ Добавить героя</button>
-      <br />
       <input
+        type="number"
         className="input-box"
-        type="text"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Введите имя героя"
+        onBlur={updateNumber}
       />
-      <button className="btn" onClick={addCustomItem}>✨ Добавить персонажа</button>
+      <button className="reverse-btn" onClick={reverseNumbers}>🔄 Перевернуть</button>
     </div>
   );
 }
-
-export default App;
