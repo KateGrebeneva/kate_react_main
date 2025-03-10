@@ -18,34 +18,24 @@ body {
   background-color: #ffc0d5;
 }
 
-.product-name {
-  font-size: 22px;
-  color: #9b1a3d; /* Темно-розовый для названия продукта */
+.title {
+  font-size: 24px;
+  color: #9b1a3d;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-.description-box {
-  background-color: #ffd4e3; /* Светло-розовый фон для описания */
-  border: 2px solid #ff69b4; /* Рамочка светло-розовая */
+.user-box {
+  background-color: #ffccde;
+  border: 2px solid #ff69b4;
   border-radius: 8px;
-  padding: 10px;
+  padding: 15px;
   margin-top: 10px;
-  color: #d36d8d; /* Чуть светлее розовый для текста */
+  color: #d36d8d;
+  font-size: 18px;
 }
 
-.show-btn {
-  background-color: #ff1493;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 15px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
-}
-
-.show-btn:hover {
-  background-color: #c30262;
+.user-text {
+  color: #df105c;
+  margin: 5px 0;
 }
