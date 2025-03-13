@@ -1,0 +1,30 @@
+.input1 {
+    background-color: #f2f2f2;
+    border: 2px solid #4CAF50;
+    color: #333;
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px;
+    border-radius: 5px;
+  }
+  
+  .input2 {
+    background-color: #f2f2f2;
+    border: 2px solid #2196F3;
+    color: #333;
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px;
+    border-radius: 5px;
+  }
+  
+  .input3 {
+    background-color: #f2f2f2;
+    border: 2px solid #FF5722;
+    color: #333;
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px;
+    border-radius: 5px;
+  }
+  
