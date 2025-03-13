@@ -1,116 +1,59 @@
-/* Основной стиль для страницы */
 body {
-  background-color: #ff88c0;
+  background-color: #ff9cba;
   font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  color: #4a4a4a;
-}
-
-/* Контейнер таблицы */
-.container {
-  width: 90%;
-  max-width: 800px;
-  padding: 20px;
-  background-color: #ffbfd6;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
-  overflow: hidden;
-  text-align: center;
-}
-
-/* Заголовок */
-.title {
-  font-size: 28px;
   color: #d81b60;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* Таблица */
-.user-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #ffc9e5;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-/* Заголовки таблицы */
-.user-table th,
-.user-table td {
-  border: 2px solid #f48fb1;
-  padding: 12px 18px;
-  color: #d81b60;
-  text-align: center;
-}
-
-/* Фон для заголовков */
-.user-table th {
-  background-color: #f8bbd0;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Стиль строк */
-.user-table tr:nth-child(even) {
-  background-color: #ffc7da;
-}
-
-.user-table tr:hover {
-  background-color: #f48fb1;
-  cursor: pointer;
-  color: rgb(255, 174, 213);
-}
-
-/* Поля ввода */
-input {
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #f48fb1;
+/* Контейнер калькулятора */
+.calculator-container {
+  border: 2px solid #d81b60;
   border-radius: 5px;
-  background-color: #fff1f3;
-  width: 100%;
-  box-sizing: border-box;
-  transition: border-color 0.3s ease;
+  background-color: #ffcadd;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(255, 105, 180, 0.3);
+  text-align: center;
+  width: 350px;
 }
 
-input:focus {
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Поле ввода */
+.temp-input {
+  margin-bottom: 15px;
+}
+
+.temp-input label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.temp-input input {
+  width: 80%;
+  padding: 8px;
+  font-size: 16px;
+  border: 2px solid #f48fb1;
+  border-radius: 5px;
+  background-color: #ffdde8;
+  text-align: center;
+}
+
+.temp-input input:focus {
   border-color: #d81b60;
   outline: none;
-  background-color: #fce4ec;
 }
 
-/* Текстовое поле */
-span {
-  cursor: pointer;
-  color: #d81b60;
-}
-
-span:hover {
-  text-decoration: underline;
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-  .container {
-    padding: 15px;
-    width: 100%;
-  }
-
-  .user-table th,
-  .user-table td {
-    font-size: 12px;
-    padding: 10px 12px;
-  }
-
-  .title {
-    font-size: 24px;
-  }
+/* Блок вердикта */
+.verdict {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 15px;
 }
