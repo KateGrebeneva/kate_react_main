@@ -6,37 +6,35 @@ body {
   align-items: center;
   height: 100vh;
   color: #d81b60;
-  margin: 0;
 }
 
-/* Контейнер списка задач */
-.todo-container {
+.temp-container {
   border: 2px solid #d81b60;
   border-radius: 10px;
   background-color: #ffcadd;
   padding: 20px;
   box-shadow: 0px 5px 15px rgba(255, 105, 180, 0.3);
   text-align: center;
-  width: 400px;
+  width: 350px;
 }
 
-/* Заголовок */
 h2 {
   font-size: 24px;
-  margin-bottom: 15px;
-  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-/* Поле ввода и кнопка */
-.task-input {
-  display: flex;
-  gap: 10px;
+/* Поле ввода */
+.temp-input {
   margin-bottom: 15px;
-  justify-content: center;
 }
 
-.task-input input {
-  width: 70%;
+.temp-input label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.temp-input input {
+  width: 80%;
   padding: 8px;
   font-size: 16px;
   border: 2px solid #f48fb1;
@@ -45,53 +43,27 @@ h2 {
   text-align: center;
 }
 
-.task-input input:focus {
+.temp-input input:focus {
   border-color: #d81b60;
   outline: none;
 }
 
-.task-input button {
-  padding: 8px 12px;
+/* Результат */
+.temp-result {
+  margin-top: 10px;
+}
+
+.temp-result label {
   font-size: 16px;
-  border: none;
+  margin-bottom: 5px;
+}
+
+.temp-result input {
+  width: 80%;
+  padding: 8px;
+  font-size: 16px;
+  border: 2px solid #f48fb1;
   border-radius: 5px;
-  background-color: #d81b60;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.task-input button:hover {
-  background-color: #b3164b;
-}
-
-/* Список задач */
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  background: #ffdde8;
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid #f48fb1;
-}
-
-li button {
-  background-color: #f06292;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-li button:hover {
-  background-color: #d81b60;
+  background-color: #ffdde8;
+  text-align: center;
 }

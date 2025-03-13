@@ -1,59 +1,33 @@
 import React, { useState } from "react";
 import "./App.css"; // Подключаем стили
 
-function ToDoList() {
-  const [tasks, setTasks] = useState([]);
+function TemperatureConverter() {
+  const [fahrenheit, setFahrenheit] = useState(32); // Храним температуру только в Фаренгейтах
 
-  function addTask(task) {
-    setTasks([...tasks, task]);
+  function handleFahrenheitChange(event) {
+    setFahrenheit(event.target.value);
   }
 
-  function removeTask(index) {
-    setTasks(tasks.filter((_, i) => i !== index));
-  }
+  // Вычисляем температуру в Цельсиях из Фаренгейта
+  const celsius = (fahrenheit - 32) * 5 / 9;
 
   return (
-    <div className="todo-container">
-      <h2>Список задач</h2>
-      <TaskInput addTask={addTask} />
-      <TaskList tasks={tasks} removeTask={removeTask} />
+    <div className="temp-container">
+      <h2>Конвертер температуры</h2>
+      <div className="temp-input">
+        <label>Температура в Фаренгейтах:</label>
+        <input
+          type="number"
+          value={fahrenheit}
+          onChange={handleFahrenheitChange}
+        />
+      </div>
+      <div className="temp-result">
+        <label>Температура в Цельсиях:</label>
+        <input type="text" value={celsius.toFixed(2)} readOnly />
+      </div>
     </div>
   );
 }
 
-function TaskInput({ addTask }) {
-  const [task, setTask] = useState("");
-
-  function handleAdd() {
-    if (task.trim()) {
-      addTask(task);
-      setTask("");
-    }
-  }
-
-  return (
-    <div className="task-input">
-      <input
-        type="text"
-        placeholder="Новая задача"
-        value={task}
-        onChange={(e) => setTask(e.target.value)}
-      />
-      <button onClick={handleAdd}>Добавить</button>
-    </div>
-  );
-}
-
-function TaskList({ tasks, removeTask }) {
-  return (
-    <ul>
-      {tasks.map((task, index) => (
-        <li key={index}>
-          {task} <button onClick={() => removeTask(index)}>Удалить</button>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-export default ToDoList;
+export default TemperatureConverter;
