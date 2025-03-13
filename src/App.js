@@ -3,12 +3,24 @@ import Employee from "./Employee";
 import "./App.css";
 
 function App() {
+  const employees = [
+    { surname: "Лебедев", name: "Евгений", patronymic: "Андреевич", salary: 50000 },
+    { surname: "Либерман", name: "Татьяна", patronymic: "Александровна", salary: 60000 },
+    { surname: "Костенко", name: "Лина", patronymic: "Васильевна", salary: 70000 }
+  ];
+
   return (
     <div className="container">
       <h1 className="title">💼 Список сотрудников</h1>
-      <Employee surname="Лебедев" name="Иван" patronymic="Васильевич" salary={50000} />
-      <Employee surname="Петрова" name="Мария" patronymic="Александровна" salary={60000} />
-      <Employee surname="Сидоров" name="Алексей" patronymic="Сергеевич" salary={70000} />
+      {employees.map((employee, index) => (
+        <Employee
+          key={index}
+          surname={employee.surname}
+          name={employee.name}
+          patronymic={employee.patronymic}
+          salary={employee.salary}
+        />
+      ))}
     </div>
   );
 }
