@@ -1,41 +1,47 @@
 import React, { useState } from "react";
-import "./App.css"; // Подключаем стили
+import "./App.css";
 
-function getSum(arr) {
-  return arr.reduce((acc, num) => acc + Number(num), 0);
-}
+function App() {
+  const [notes, setNotes] = useState([1, 2, 3, 4, 5]);
+  const [editNum, setEditNum] = useState(null);
 
-function Calculator() {
-  const [value, setValue] = useState("");
-  const [nums, setNums] = useState([1, 2, 3]);
+  const result = notes.map((note, index) => {
+    return (
+      <div
+        key={index}
+        className="note-container"
+        onClick={() => startEdit(index)}
+      >
+        <p className="note-text">{note}</p>
+      </div>
+    );
+  });
 
-  function handleChange(event) {
-    setValue(event.target.value);
+  function startEdit(index) {
+    setEditNum(index);
   }
 
-  function handleAdd() {
-    if (value.trim() !== "") {
-      const updatedNums = [...nums, value];
-      setNums(updatedNums);
-      setValue("");
-    }
+  function changeItem(event) {
+    const updatedNotes = [...notes];
+    updatedNotes[editNum] = event.target.value;
+    setNotes(updatedNotes);
   }
 
   return (
-    <div className="calculator-container">
-      <h2>Калькулятор суммы</h2>
-      <div className="sum-display">Сумма: {getSum(nums)}</div>
-      <div className="input-container">
-        <input 
-          type="number"
-          value={value}
-          onChange={handleChange}
-          placeholder="Введите число"
-        />
-        <button onClick={handleAdd}>Добавить</button>
-      </div>
+    <div className="app-container">
+      <div className="notes-list">{result}</div>
+      {editNum !== null && (
+        <div className="input-container">
+          <input
+            className="edit-input"
+            value={notes[editNum]}
+            onChange={changeItem}
+            autoFocus
+          />
+        </div>
+      )}
     </div>
   );
 }
 
-export default Calculator;
+export default App;
