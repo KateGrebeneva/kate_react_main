@@ -8,62 +8,74 @@ body {
   color: #d81b60;
 }
 
-.temp-container {
-  border: 2px solid #d81b60;
-  border-radius: 10px;
+/* Контейнер калькулятора */
+.calculator-container {
+  border: 3px solid #d81b60;
+  border-radius: 15px;
   background-color: #ffcadd;
-  padding: 20px;
-  box-shadow: 0px 5px 15px rgba(255, 105, 180, 0.3);
+  padding: 25px;
+  box-shadow: 0px 6px 20px rgba(255, 105, 180, 0.4);
   text-align: center;
-  width: 350px;
+  width: 400px;
 }
 
 h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #c2185b;
 }
 
 /* Поле ввода */
-.temp-input {
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 15px;
 }
 
-.temp-input label {
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-.temp-input input {
-  width: 80%;
-  padding: 8px;
+input {
+  width: 60%;
+  padding: 10px;
   font-size: 16px;
   border: 2px solid #f48fb1;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: #ffdde8;
   text-align: center;
+  transition: 0.3s;
 }
 
-.temp-input input:focus {
+input:focus {
   border-color: #d81b60;
   outline: none;
+  background-color: #ffd1e4;
 }
 
-/* Результат */
-.temp-result {
-  margin-top: 10px;
-}
-
-.temp-result label {
+/* Кнопка */
+button {
+  background-color: #d81b60;
+  color: white;
+  border: none;
+  padding: 10px 15px;
   font-size: 16px;
-  margin-bottom: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.temp-result input {
-  width: 80%;
-  padding: 8px;
-  font-size: 16px;
-  border: 2px solid #f48fb1;
-  border-radius: 5px;
+button:hover {
+  background-color: #c2185b;
+}
+
+/* Отображение суммы */
+.sum-display {
+  font-size: 22px;
+  font-weight: bold;
   background-color: #ffdde8;
-  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #f48fb1;
+  display: inline-block;
+  width: auto;
+  min-width: 80px;
 }

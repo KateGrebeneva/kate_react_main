@@ -1,33 +1,41 @@
 import React, { useState } from "react";
 import "./App.css"; // Подключаем стили
 
-function TemperatureConverter() {
-  const [fahrenheit, setFahrenheit] = useState(32); // Храним температуру только в Фаренгейтах
+function getSum(arr) {
+  return arr.reduce((acc, num) => acc + Number(num), 0);
+}
 
-  function handleFahrenheitChange(event) {
-    setFahrenheit(event.target.value);
+function Calculator() {
+  const [value, setValue] = useState("");
+  const [nums, setNums] = useState([1, 2, 3]);
+
+  function handleChange(event) {
+    setValue(event.target.value);
   }
 
-  // Вычисляем температуру в Цельсиях из Фаренгейта
-  const celsius = (fahrenheit - 32) * 5 / 9;
+  function handleAdd() {
+    if (value.trim() !== "") {
+      const updatedNums = [...nums, value];
+      setNums(updatedNums);
+      setValue("");
+    }
+  }
 
   return (
-    <div className="temp-container">
-      <h2>Конвертер температуры</h2>
-      <div className="temp-input">
-        <label>Температура в Фаренгейтах:</label>
-        <input
+    <div className="calculator-container">
+      <h2>Калькулятор суммы</h2>
+      <div className="sum-display">Сумма: {getSum(nums)}</div>
+      <div className="input-container">
+        <input 
           type="number"
-          value={fahrenheit}
-          onChange={handleFahrenheitChange}
+          value={value}
+          onChange={handleChange}
+          placeholder="Введите число"
         />
-      </div>
-      <div className="temp-result">
-        <label>Температура в Цельсиях:</label>
-        <input type="text" value={celsius.toFixed(2)} readOnly />
+        <button onClick={handleAdd}>Добавить</button>
       </div>
     </div>
   );
 }
 
-export default TemperatureConverter;
+export default Calculator;
