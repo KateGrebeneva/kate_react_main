@@ -8,13 +8,12 @@ body {
   color: #d81b60;
 }
 
-/* Контейнер калькулятора */
-.calculator-container {
+/* Контейнер формы */
+.login-container {
   border: 2px solid #d81b60;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: #ffcadd;
   padding: 20px;
-  border-radius: 10px;
   box-shadow: 0px 5px 15px rgba(255, 105, 180, 0.3);
   text-align: center;
   width: 350px;
@@ -25,18 +24,8 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* Поле ввода */
-.temp-input {
-  margin-bottom: 15px;
-}
-
-.temp-input label {
-  display: block;
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-.temp-input input {
+/* Поля ввода */
+.input-field {
   width: 80%;
   padding: 8px;
   font-size: 16px;
@@ -44,16 +33,25 @@ h2 {
   border-radius: 5px;
   background-color: #ffdde8;
   text-align: center;
+  margin-bottom: 15px;
 }
 
-.temp-input input:focus {
+.input-field:focus {
   border-color: #d81b60;
   outline: none;
 }
 
-/* Блок вердикта */
-.verdict {
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 15px;
+/* Кнопка входа */
+.login-button {
+  background-color: #d81b60;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #c2185b;
 }
