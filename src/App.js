@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import User from "./User";
 import "./App.css";
 
-function Users() {
+function App() {
   const initUsers = [
     { id: 1, name: "Реджина", surname: "Миллс", age: 29 },
     { id: 2, name: "Робин", surname: "Андреева", age: 32 },
@@ -17,6 +17,7 @@ function Users() {
       <table className="user-table">
         <thead>
           <tr>
+            <th>ID</th> 
             <th>Имя</th>
             <th>Фамилия</th>
             <th>Возраст</th>
@@ -24,7 +25,7 @@ function Users() {
         </thead>
         <tbody>
           {users.map((user) => (
-            <User key={user.id} name={user.name} surname={user.surname} age={user.age} />
+            <User key={user.id} id={user.id} name={user.name} surname={user.surname} age={user.age} />
           ))}
         </tbody>
       </table>
@@ -32,4 +33,4 @@ function Users() {
   );
 }
 
-export default Users;
+export default App;

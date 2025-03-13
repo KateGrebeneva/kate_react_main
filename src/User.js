@@ -1,8 +1,9 @@
 import React from "react";
 
-function User({ name, surname, age }) {
+function User({ id, name, surname, age }) {
   return (
     <tr>
+      <td>{id}</td> 
       <td>{name}</td>
       <td>{surname}</td>
       <td>{age}</td>
