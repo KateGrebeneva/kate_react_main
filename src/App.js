@@ -1,93 +1,73 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// Стилизованный контейнер для всего блока
-const BlockContainer = styled.div`
+// Стили для всего фона страницы
+const PageContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 100vh;
-  background-color: rgba(255, 182, 193, 0.8); /* светлый розовый фон */
-  padding: 40px;
+  background: linear-gradient(to right,rgb(245, 168, 208),rgb(229, 137, 175)); /* плавный переход от светло-розового к более темному */
   font-family: 'Arial', sans-serif;
 `;
 
-// Заголовок с пояснением
-const Title = styled.h1`
-  font-size: 24px;
-  color: #800000; /* бордовый цвет для заголовка */
-  margin-bottom: 20px;
-  font-family: 'Cursive', sans-serif;
-  text-align: center;
-`;
-
-// Описание задачи
-const Description = styled.p`
-  font-size: 18px;
-  color:rgb(164, 3, 62);
-  margin-bottom: 40px;
-  text-align: center;
-  line-height: 1.5;
-  max-width: 600px;
-`;
-
-// Стилизованная кнопка с использованием пропсов для изменения стилей
-const Button = styled.button`
-  padding: 15px 30px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  font-size: 18px;
-  font-weight: bold;
-  width: 220px;
-  margin: 10px 0;
-
-  background-color: ${({ warn, disabled, type }) => {
-    if (warn) return 'yellow'; // для warn кнопки желтый фон
-    if (disabled) return '#d3d3d3'; // для заблокированной кнопки серый фон
-    if (type === 'reset') return '#ff6347'; // для кнопки reset красный фон
-    return '#32cd32'; // для обычных кнопок зеленый фон
-  }};
-  color: ${({ warn, disabled }) => (warn ? 'red' : disabled ? '#a9a9a9' : 'white')}; // цвет текста
-
+// Контейнер, в котором размещены все элементы
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 20px;
+  background-color: #fff5e1; /* светлый кремовый фон */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  /* мягкая тень */
+  width: 500px;
+  margin-top: 20px;
+  transition: all 0.3s ease; /* плавный переход при изменении состояния */
+  
   &:hover {
-    background-color: ${({ warn, disabled, type }) => {
-      if (warn) return 'orange'; // темный желтый при hover для warn кнопки
-      if (disabled) return '#d3d3d3'; // оставляем серый для заблокированной
-      if (type === 'reset') return '#e64a19'; // темный оттенок для reset кнопки
-      return '#228b22'; // темно-зеленый для обычной кнопки
-    }};
-    transform: scale(1.1); /* эффект увеличения при наведении */
-  }
-
-  &:disabled {
-    cursor: not-allowed;
+    transform: scale(1.05); /* эффект увеличения при наведении */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* увеличенная тень */
   }
 `;
 
-function Block() {
+// Компонент DIVA с желтым фоном и границей 2px
+const DIVA = styled.div`
+  width: 150px;
+  height: 150px;
+  background-color: #ffec65; /* мягкий желтый */
+  border: 2px solid #e1c400;  /* граница желтого цвета */
+  border-radius: 8px;
+  margin: 10px;
+  transition: background-color 0.3s ease;  /* плавное изменение фона */
+  
+  &:hover {
+    background-color: #ffd400; /* более яркий желтый при наведении */
+  }
+`;
+
+// Компонент DIVB с зеленым фоном и границей 3px
+const DIVB = styled(DIVA)`
+  background-color: #a8e6a5; /* мягкий зеленый */
+  border: 3px solid #64a064;   /* темно-зеленая граница */
+  
+  &:hover {
+    background-color: #76c76b;  /* яркий зеленый при наведении */
+  }
+`;
+
+// Основной контейнер страницы
+function Block1() {
   return (
-    <BlockContainer>
-      <Title>Условный рендеринг с Styled Components</Title>
-      <Description>
-        В этом примере, с помощью пропсов мы изменяем внешний вид кнопок. Первая кнопка заблокирована, 
-        вторая кнопка имеет стиль с предупреждением, а третья кнопка — кнопка типа reset.
-      </Description>
-      {/* Первая кнопка с заблокированным состоянием */}
-      <Button disabled>Первая кнопка (заблокирована)</Button>
-
-      {/* Вторая кнопка с пропсом warn */}
-      <Button warn>Вторая кнопка (warn)</Button>
-
-      
-      <Button>Вторая кнопка (без warn)</Button>
-
-      {/* Третья кнопка с типом reset */}
-      <Button type="reset">Третья кнопка (reset)</Button>
-    </BlockContainer>
+    <PageContainer>
+      <Container>
+        <DIVA />  {/* Первый DIVA */}
+        <DIVB />  {/* DIVB между ними */}
+        <DIVA />  {/* Второй DIVA */}
+      </Container>
+    </PageContainer>
   );
 }
 
-export default Block;
+export default Block1;
+
