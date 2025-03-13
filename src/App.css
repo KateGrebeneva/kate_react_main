@@ -1,92 +1,124 @@
-/* Общие стили для body */
+/* Основной стиль для тела страницы */
 body {
   background-color: #fa8cc1;
-  font-family: "Arial", sans-serif;
+  font-family: 'Arial', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
-  overflow: hidden;
+  color: #333;
 }
 
-/* Стили для контейнера */
+/* Контейнер, в котором содержится таблица */
 .container {
   border: 3px solid #c30262;
   border-radius: 12px;
-  padding: 25px;
-  width: 500px;
+  padding: 30px;
+  width: 90%;
+  max-width: 700px;
   text-align: center;
-  box-shadow: 0 5px 25px rgba(255, 105, 180, 0.5);
+  box-shadow: 0 5px 20px rgba(255, 105, 180, 0.3);
   background-color: #ffc0d5;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавное изменение */
-}
-
-.container:hover {
-  transform: scale(1.02); /* Легкое увеличение контейнера при наведении */
-  box-shadow: 0 10px 40px rgba(255, 105, 180, 0.7); /* Усиление тени при наведении */
+  overflow: hidden;
 }
 
 /* Заголовок */
 .title {
-  font-size: 24px;
+  font-size: 28px;
   color: #9b1a3d;
   font-weight: bold;
-  margin-bottom: 15px;
-  letter-spacing: 1px; /* Немного увеличиваем расстояние между буквами */
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Стили для таблицы */
+/* Стиль таблицы */
 .user-table {
   width: 100%;
   border-collapse: collapse;
   background-color: #ffccde;
-  border-radius: 10px; /* Закругляем углы таблицы */
-  overflow: hidden; /* Скругляем содержимое */
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-/* Стили для ячеек таблицы */
-.user-table th, .user-table td {
+/* Стиль для заголовков таблицы */
+.user-table th,
+.user-table td {
   border: 2px solid #ff69b4;
-  padding: 12px;
+  padding: 12px 18px;
   color: #9b1a3d;
   text-align: center;
-  font-size: 16px; /* Увеличиваем шрифт для лучшего восприятия */
-  transition: background-color 0.3s ease; /* Плавный переход для фона */
 }
 
-/* Стили для заголовков таблицы */
+/* Фон для заголовков таблицы */
 .user-table th {
   background-color: #ff99c8;
   font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/* Эффекты при наведении на ячейки */
-.user-table td:hover {
-  background-color: #ffebf2;
-  cursor: pointer; /* Указатель меняется на "руку" */
+/* Стиль для строк таблицы */
+.user-table tr:nth-child(even) {
+  background-color: #fff0f6;
 }
 
-/* Стили для кнопок */
+.user-table tr:hover {
+  background-color: #ff99c8;
+  cursor: pointer;
+}
+
+/* Стиль для кнопок */
 button {
-  padding: 10px 20px;
+  padding: 8px 15px;
+  border: none;
   background-color: #ff69b4;
   color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease;
 }
 
-/* Эффекты для кнопок */
 button:hover {
   background-color: #c2185b;
-  transform: scale(1.05); /* Увеличение кнопки при наведении */
 }
 
-button:disabled {
-  background-color: #dcdcdc;
-  cursor: not-allowed;
+/* Стиль для полей ввода */
+input[type="text"],
+input[type="number"] {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ff69b4;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff5f7;
+  transition: border-color 0.3s ease;
 }
 
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #c2185b;
+  outline: none;
+}
+
+/* Стиль для адаптивности */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+    width: 100%;
+    max-width: 95%;
+  }
+
+  .user-table th,
+  .user-table td {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+}
