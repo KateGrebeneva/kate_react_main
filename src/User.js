@@ -1,41 +1,12 @@
-import React from "react";
-import UserField from "./UserField";
+import React from 'react';
+import UserField from './UserField'; // Подключаем компонент UserField
 
-function User({ user, toggleEditMode, editUser }) {
+function User({ id, name, email, role, changeField }) {
   return (
     <tr>
-      <td>
-        <UserField
-          id={user.id}
-          text={user.name}
-          type="name"
-          isEdit={user.isEdit}
-          editUser={editUser}
-        />
-      </td>
-      <td>
-        <UserField
-          id={user.id}
-          text={user.surname}
-          type="surname"
-          isEdit={user.isEdit}
-          editUser={editUser}
-        />
-      </td>
-      <td>
-        <UserField
-          id={user.id}
-          text={user.age}
-          type="age"
-          isEdit={user.isEdit}
-          editUser={editUser}
-        />
-      </td>
-      <td>
-        <button onClick={() => toggleEditMode(user.id)}>
-          {user.isEdit ? "Save" : "Edit"}
-        </button>
-      </td>
+      <UserField id={id} text={name} type="name" changeField={changeField} />
+      <UserField id={id} text={email} type="email" changeField={changeField} />
+      <UserField id={id} text={role} type="role" changeField={changeField} />
     </tr>
   );
 }

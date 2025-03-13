@@ -2,48 +2,50 @@ import React, { useState } from "react";
 import User from "./User";
 import "./App.css";
 
-function Users() {
-  const initUsers = [
-    { id: 1, name: "Реджина", surname: "Миллс", age: 29, isEdit: false },
-    { id: 2, name: "Робин", surname: "Гуд", age: 32, isEdit: false },
-    { id: 3, name: "Арчи", surname: "Хоппер", age: 35, isEdit: false }
-  ];
+const initUsers = [
+  { id: 1, name: 'User1', email: 'user1@example.com', role: 'Admin' },
+  { id: 2, name: 'User2', email: 'user2@example.com', role: 'User' },
+  { id: 3, name: 'User3', email: 'user3@example.com', role: 'Manager' },
+];
 
+function Users() {
   const [users, setUsers] = useState(initUsers);
 
-  function toggleEditMode(id) {
-    setUsers(users.map(user =>
-      user.id === id ? { ...user, isEdit: !user.isEdit } : user
-    ));
+  function changeField(id, field, event) {
+    setUsers(users.map(user => {
+      if (user.id === id) {
+        user[field] = event.target.value;
+      }
+      return user;
+    }));
   }
 
-  function editUser(id, field, value) {
-    setUsers(users.map(user =>
-      user.id === id ? { ...user, [field]: value } : user
-    ));
-  }
+  const rows = users.map(user => {
+    return (
+      <User
+        key={user.id}
+        id={user.id}
+        name={user.name}
+        email={user.email}
+        role={user.role}
+        changeField={changeField}
+      />
+    );
+  });
 
   return (
     <div className="container">
-      <h1 className="title">📋 Список пользователей</h1>
+      <h2 className="title">Список пользователей</h2>
       <table className="user-table">
         <thead>
           <tr>
             <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Возраст</th>
-            <th>Действие</th>
+            <th>Email</th>
+            <th>Роль</th>
           </tr>
         </thead>
         <tbody>
-          {users.map(user => (
-            <User 
-              key={user.id} 
-              user={user} 
-              toggleEditMode={toggleEditMode} 
-              editUser={editUser} 
-            />
-          ))}
+          {rows}
         </tbody>
       </table>
     </div>
