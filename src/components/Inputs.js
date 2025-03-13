@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './Inputs.module.css'; // Импортируем CSS стили
+import React from "react";
+import styles from "./Inputs.module.css"; // Импортируем стили
 
 const Inputs = () => (
   <div>
