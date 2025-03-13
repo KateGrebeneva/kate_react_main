@@ -1,77 +1,61 @@
+/* Задний фон всей страницы */
 body {
-  background-color: #ff9cba;
-  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom right, #a0c5d6, #538faf); /* плавный градиент голубых оттенков */
+  font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  color: #d81b60;
   margin: 0;
+  color: #004d40;
 }
 
-/* Контейнер для всего приложения */
-.app-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 400px;
-  padding: 20px;
-  background-color: #ffcadd;
-  border-radius: 10px;
-  box-shadow: 0px 5px 15px rgba(255, 105, 180, 0.3);
+/* Основной контейнер */
+.container {
+  width: 350px;
+  padding: 30px;
+  background-color: #bdd1d9; /* нежный голубой фон */
+  border-radius: 12px;
+  text-align: center;
+  border: 3px solid #0288d1; /* более насыщенный голубой для границы */
+  box-shadow: 0 4px 10px rgba(0, 121, 107, 0.4);
 }
 
-/* Список заметок */
-.notes-list {
-  width: 100%;
+/* Заголовок */
+.title {
+  font-size: 26px;
+  color: #004d40;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
-/* Контейнер для каждой заметки */
-.note-container {
-  background-color: #ffdde8;
-  padding: 10px;
-  margin: 5px;
+/* Кнопка 1 */
+.btn1 {
+  background-color: #0288d1;
+  color: white;
+  padding: 12px 24px;
+  margin: 10px 0;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0px 4px 10px rgba(255, 105, 180, 0.2);
-  transition: transform 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-.note-container:hover {
-  transform: scale(1.05);
+.btn1:hover {
+  background-color: #01579b;
 }
 
-/* Текст заметки */
-.note-text {
-  font-size: 18px;
-  font-weight: bold;
-  color: #d81b60;
-  margin: 0;
-}
-
-/* Контейнер для ввода */
-.input-container {
-  width: 100%;
-  margin-top: 15px;
-  text-align: center;
-}
-
-/* Поле ввода */
-.edit-input {
-  width: 80%;
-  padding: 8px;
-  font-size: 16px;
-  border: 2px solid #f48fb1;
+/* Кнопка 2 */
+.btn2 {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 24px;
+  border: none;
   border-radius: 8px;
-  background-color: #ffdde8;
-  text-align: center;
-  transition: 0.3s;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.edit-input:focus {
-  border-color: #d81b60;
-  outline: none;
-  background-color: #ffd1e4;
+.btn2:hover {
+  background-color: #388e3c;
 }
