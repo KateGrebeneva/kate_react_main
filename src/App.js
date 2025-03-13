@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import User from "./User";
 import "./App.css";
 
-function App() {
-  const users = [
-    { id: 1, name: "Реджина", surn: "Миллс", age: 29 },
-    { id: 2, name: "Робин", surn: "Андреева", age: 32 },
-    { id: 3, name: "Арчи", surn: "Хоппер", age: 35 }
+function Users() {
+  const initUsers = [
+    { id: 1, name: "Реджина", surname: "Миллс", age: 29 },
+    { id: 2, name: "Робин", surname: "Андреева", age: 32 },
+    { id: 3, name: "Арчи", surname: "Хоппер", age: 35 }
   ];
+
+  const [users] = useState(initUsers);
 
   return (
     <div className="container">
@@ -22,7 +24,7 @@ function App() {
         </thead>
         <tbody>
           {users.map((user) => (
-            <User key={user.id} name={user.name} surn={user.surn} age={user.age} />
+            <User key={user.id} name={user.name} surname={user.surname} age={user.age} />
           ))}
         </tbody>
       </table>
@@ -30,4 +32,4 @@ function App() {
   );
 }
 
-export default App;
+export default Users;
