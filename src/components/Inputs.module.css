@@ -6,6 +6,7 @@
   margin: 5px 0;
   border: 2.5px solid #d81b60;
   transition: all 0.3s ease;
+  composes: beauty from "../App.module.css";
 }
 
 .input1 {
