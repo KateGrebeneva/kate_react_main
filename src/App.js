@@ -6,7 +6,7 @@ function App() {
   return (
     <div className={styles.app}>
       <div className={styles.container}>
-        <h2 className={styles.title}>Task#108: Styled Inputs with CSS Modules</h2>
+        <h2 className={styles.title}>Task#109</h2>
         <Inputs />
       </div>
     </div>
