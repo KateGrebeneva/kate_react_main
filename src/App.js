@@ -1,17 +1,16 @@
 import React from "react";
-import User from "./User";
+import Employee from "./Employee";
 import "./App.css";
 
 function App() {
   return (
     <div className="container">
-      <h1 className="title">📜 Список персонажей</h1>
-      <User name="Ариэль" age={18} city="Атлантика" />
-      <User name="Эрик" age={21} city="Королевство" />
-      <User name="Урсула" age={45} city="Подводный мир" />
+      <h1 className="title">💼 Список сотрудников</h1>
+      <Employee surname="Лебедев" name="Иван" patronymic="Васильевич" salary={50000} />
+      <Employee surname="Петрова" name="Мария" patronymic="Александровна" salary={60000} />
+      <Employee surname="Сидоров" name="Алексей" patronymic="Сергеевич" salary={70000} />
     </div>
   );
 }
 
 export default App;
-

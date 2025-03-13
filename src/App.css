@@ -25,7 +25,7 @@ body {
   margin-bottom: 15px;
 }
 
-.user-box {
+.employee-box {
   background-color: #ffccde;
   border: 2px solid #ff69b4;
   border-radius: 8px;
@@ -33,9 +33,10 @@ body {
   margin-top: 10px;
   color: #d36d8d;
   font-size: 18px;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
 }
 
-.user-text {
+.employee-text {
   color: #cd306a;
   margin: 5px 0;
 }
