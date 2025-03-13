@@ -1,83 +1,89 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// Контейнер с розовым градиентом
-const Container = styled.div`
-  height: 100vh;
+// Стилизованный контейнер для всего сайта
+const FullContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, #f8bbd0, #f48fb1); /* пастельные розовые оттенки */
+  flex-direction: column;
+  height: 100vh;
+  background-color: rgba(190, 60, 69, 0.8); 
+  padding: 20px;
 `;
 
-// Блок с розовым фоном
-const Box = styled.div`
-  width: 350px;
-  padding: 30px;
-  background-color: #fce4ec; /* светлый розовый цвет */
-  border-radius: 12px;
-  text-align: center;
-  border: 3px solid #f06292; /* яркий розовый акцент */
-  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3); /* легкая розовая тень */
-`;
-
-// Заголовок 
-const Title = styled.h1`
-  font-size: 28px;
-  color: #d32f2f; /* яркий розовый цвет */
-  margin-bottom: 20px;
-  font-weight: bold;
+// Стилизованный текст с именем пользователя
+const UserText = styled.h2`
+  color: rgb(249, 173, 173); 
   font-family: 'Cursive', sans-serif;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 20px;
+  border: 3px solid rgb(97, 5, 11);
+  background-color:rgb(164, 5, 5); 
+  width: 700px;
+  border-radius: 8px;
 `;
 
-// Кнопка 1 
-const Button1 = styled.button`
-  padding: 12px 24px;
-  margin: 10px 0;
-  border: none;
+// Стилизованный контейнер для кнопок
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+  border: 3px solid rgb(100, 6, 13);
+  background-color:rgba(128, 0, 0, 0.81); 
   border-radius: 8px;
+  margin-top: 20px;
+`;
+
+// Стилизованная кнопка
+const Button = styled.button`
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  background-color: #e91e63; /* яркий розовый */
-  color: white;
   font-size: 16px;
   font-weight: bold;
-  font-family: 'Arial', sans-serif;
+
+  background-color: ${({ disabled, type }) =>
+    disabled
+      ? '#d3d3d3' // цвет для заблокированной кнопки
+      : type === 'reset'
+      ? '#ff6347' // красный оттенок для кнопки reset
+      : '#b22222'}; /* бордовый оттенок для обычной кнопки */
+
+  color: white;
 
   &:hover {
-    background-color: #c2185b; /* более темный розовый при наведении */
+    background-color: ${({ disabled, type }) =>
+      disabled
+        ? '#d3d3d3'
+        : type === 'reset'
+        ? '#e64a19' 
+        : '#8b1a1a'}; /* темный бордовый при hover */
+  }
+
+  &:disabled {
+    cursor: not-allowed;
   }
 `;
 
-// Кнопка 2 
-const Button2 = styled.button`
-  padding: 12px 24px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  background-color:rgb(58, 185, 77); 
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  font-family: 'Arial', sans-serif;
-
-  &:hover {
-    background-color:rgb(25, 99, 18); 
-  }
-`;
-
-function RoseTheme() {
+function App() {
   return (
-    <Container>
-      <Box>
-        <Title>Цветок Роза</Title>
-        <Button1>Смотреть розы</Button1>
-        <Button2>Узнать больше</Button2>
-      </Box>
-    </Container>
+    <FullContainer>
+      <UserText>Task#104</UserText>
+      <ButtonContainer>
+        <Button disabled>Первая кнопка (заблокирована)</Button>
+        <Button>Вторая кнопка</Button>
+        <Button type="reset">Третья кнопка (reset)</Button>
+      </ButtonContainer>
+    </FullContainer>
   );
 }
 
-export default RoseTheme;
+export default App;
