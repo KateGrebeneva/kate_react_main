@@ -4,9 +4,9 @@ import "./App.css";
 
 function App() {
   const users = [
-    { id: 1, name: "Анастасия", surn: "Лебедева", age: 16 },
-    { id: 2, name: "Мира", surn: "Андреева", age: 16 },
-    { id: 3, name: "Анна", surn: "Джонс", age: 18 }
+    { id: 1, name: "Реджина", surn: "Миллс", age: 29 },
+    { id: 2, name: "Робин", surn: "Андреева", age: 32 },
+    { id: 3, name: "Арчи", surn: "Хоппер", age: 35 }
   ];
 
   return (
