@@ -1,71 +1,65 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// Стилизованный контейнер для всего сайта
-const FullContainer = styled.div`
+// Стилизованный контейнер для всего блока
+const BlockContainer = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  height: 100vh;
-  background-color: rgba(190, 60, 69, 0.8); 
-  padding: 20px;
-`;
-
-// Стилизованный текст с именем пользователя
-const UserText = styled.h2`
-  color: rgb(249, 173, 173); 
-  font-family: 'Cursive', sans-serif;
-  font-size: 24px;
-  margin-bottom: 20px;
-  text-align: center;
-  padding: 20px;
-  border: 3px solid rgb(97, 5, 11);
-  background-color:rgb(164, 5, 5); 
-  width: 700px;
-  border-radius: 8px;
-`;
-
-// Стилизованный контейнер для кнопок
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
-  max-width: 700px;
-  padding: 20px;
-  border: 3px solid rgb(100, 6, 13);
-  background-color:rgba(128, 0, 0, 0.81); 
-  border-radius: 8px;
-  margin-top: 20px;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgba(255, 182, 193, 0.8); /* светлый розовый фон */
+  padding: 40px;
+  font-family: 'Arial', sans-serif;
 `;
 
-// Стилизованная кнопка
+// Заголовок с пояснением
+const Title = styled.h1`
+  font-size: 24px;
+  color: #800000; /* бордовый цвет для заголовка */
+  margin-bottom: 20px;
+  font-family: 'Cursive', sans-serif;
+  text-align: center;
+`;
+
+// Описание задачи
+const Description = styled.p`
+  font-size: 18px;
+  color:rgb(164, 3, 62);
+  margin-bottom: 40px;
+  text-align: center;
+  line-height: 1.5;
+  max-width: 600px;
+`;
+
+// Стилизованная кнопка с использованием пропсов для изменения стилей
 const Button = styled.button`
-  padding: 10px 20px;
+  padding: 15px 30px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 18px;
   font-weight: bold;
+  width: 220px;
+  margin: 10px 0;
 
-  background-color: ${({ disabled, type }) =>
-    disabled
-      ? '#d3d3d3' // цвет для заблокированной кнопки
-      : type === 'reset'
-      ? '#ff6347' // красный оттенок для кнопки reset
-      : '#b22222'}; /* бордовый оттенок для обычной кнопки */
-
-  color: white;
+  background-color: ${({ warn, disabled, type }) => {
+    if (warn) return 'yellow'; // для warn кнопки желтый фон
+    if (disabled) return '#d3d3d3'; // для заблокированной кнопки серый фон
+    if (type === 'reset') return '#ff6347'; // для кнопки reset красный фон
+    return '#32cd32'; // для обычных кнопок зеленый фон
+  }};
+  color: ${({ warn, disabled }) => (warn ? 'red' : disabled ? '#a9a9a9' : 'white')}; // цвет текста
 
   &:hover {
-    background-color: ${({ disabled, type }) =>
-      disabled
-        ? '#d3d3d3'
-        : type === 'reset'
-        ? '#e64a19' 
-        : '#8b1a1a'}; /* темный бордовый при hover */
+    background-color: ${({ warn, disabled, type }) => {
+      if (warn) return 'orange'; // темный желтый при hover для warn кнопки
+      if (disabled) return '#d3d3d3'; // оставляем серый для заблокированной
+      if (type === 'reset') return '#e64a19'; // темный оттенок для reset кнопки
+      return '#228b22'; // темно-зеленый для обычной кнопки
+    }};
+    transform: scale(1.1); /* эффект увеличения при наведении */
   }
 
   &:disabled {
@@ -73,17 +67,27 @@ const Button = styled.button`
   }
 `;
 
-function App() {
+function Block() {
   return (
-    <FullContainer>
-      <UserText>Task#104</UserText>
-      <ButtonContainer>
-        <Button disabled>Первая кнопка (заблокирована)</Button>
-        <Button>Вторая кнопка</Button>
-        <Button type="reset">Третья кнопка (reset)</Button>
-      </ButtonContainer>
-    </FullContainer>
+    <BlockContainer>
+      <Title>Условный рендеринг с Styled Components</Title>
+      <Description>
+        В этом примере, с помощью пропсов мы изменяем внешний вид кнопок. Первая кнопка заблокирована, 
+        вторая кнопка имеет стиль с предупреждением, а третья кнопка — кнопка типа reset.
+      </Description>
+      {/* Первая кнопка с заблокированным состоянием */}
+      <Button disabled>Первая кнопка (заблокирована)</Button>
+
+      {/* Вторая кнопка с пропсом warn */}
+      <Button warn>Вторая кнопка (warn)</Button>
+
+      
+      <Button>Вторая кнопка (без warn)</Button>
+
+      {/* Третья кнопка с типом reset */}
+      <Button type="reset">Третья кнопка (reset)</Button>
+    </BlockContainer>
   );
 }
 
-export default App;
+export default Block;
